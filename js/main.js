@@ -12,10 +12,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
   fetchNeighborhoods();
   fetchCuisines();
   registerServiceWorker();
+  console.log('hitboi');
 });
+
+console.log('hitta');
 
 
 const registerServiceWorker = () => {
+  console.log('hittachi');
    if("serviceWorker" in navigator){
     //  navigator.serviceWorker.register("./js/serviceWorker/index.js").then(function (resp){
     //   console.log('Success');
