@@ -30,7 +30,7 @@ self.addEventListener("install", function (e){
                 'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css',
                 'https://damola.cf/mws-restaurant-stage-1/data/restaurants.json'
                 ])
-            }),then(() => console.log("logging ting"))
+            }).then(() => console.log("logging ting"))
     );
 });
 
