@@ -4,7 +4,7 @@
 
 * [About](#about)
 * [How to run](#howtorun)
-* [Dependencies] (#dependencies)
+* [Dependencies](#dependencies)
 
 ## About
  This is a mobile friendly restaurants review site coded by me as part of the projects in the front-end nanodegree program at udacity.
