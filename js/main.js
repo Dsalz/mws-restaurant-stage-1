@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
   initMap(); // added 
   fetchNeighborhoods();
   fetchCuisines();
-  registerServiceWorker();
 });
 
 
@@ -232,4 +231,32 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 } */
+
+  if("serviceWorker" in navigator){
+    
+    window.addEventListener('load', function(){
+
+          navigator.serviceWorker.register("./js/serviceWorker/index.js").then(function (resp){
+          console.log('Success');
+          console.log(resp);
+          })
+          .catch(function(error){
+            console.log('Aww, Man! :(');
+            console.log(error);
+          });
+
+          navigator.serviceWorker.register("/mws-restaurant-stage-1/js/serviceWorker/index.js").then(function (resp){
+          console.log('Success');
+          console.log(resp);
+          })
+          .catch(function(error){
+            console.log('Aww, Man! :(');
+            console.log(error);
+          });
+
+     })
+  }
+
+
+
 
