@@ -451,7 +451,6 @@ if('serviceWorker' in navigator){
 
   window.addEventListener("load", function () {
   navigator.serviceWorker.register('/mws-restaurant-stage-1/js/serviceWorker.js')
-  self
   .then(function (res) {
     console.log(res);
   console.log( "Service Worker is registered!");
