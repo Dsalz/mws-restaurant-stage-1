@@ -4,9 +4,9 @@ var newMap;
 /**
  * Initialize map as soon as the page is loaded.
  */
-document.addEventListener('DOMContentLoaded', (event) => {  
+document.addEventListener('DOMContentLoaded', (event) => {
+  registerServiceWorker(); // Registering the service worker as soon as the page loads  
   initMap();
-  registerServiceWorker();
 });
 
 /**
@@ -36,10 +36,17 @@ initMap = () => {
   });
 }  
 
-const registerServiceWorker = () =>{
-  if(!navigator.serviceWorker) return;
-  navigator.serviceWorker.register("./js/serviceWorker/index.js").then(()=> console.log("successimo"))
-  .catch(()=> console.log("falisimo"));
+const registerServiceWorker = () => {
+
+  if(navigator.serviceWorker){
+    navigator.serviceWorker.register("./js/serviceWorker.js",{
+      scope: 'http://damola.cf/mws-restaurant-stage-1/'
+    }).then((resp) => console.log('Success') || console.log(resp))
+    .catch((error) => console.log('Aww, Man! :(') || console.log(error));
+  }
+  else{
+    console.log('No Service worker on this browser');
+  }
 }
  
 /* window.initMap = () => {
