@@ -34,6 +34,12 @@ initMap = () => {
     }
   });
 }  
+
+registerServiceWorker = () =>{
+  if(!navigator.serviceWorker) return;
+  navigator.serviceWorker.register("/js/serviceWorker/index.js").then(()=> console.log("successimo"))
+  .catch(()=> console.log("falisimo"));
+}
  
 /* window.initMap = () => {
   fetchRestaurantFromURL((error, restaurant) => {
@@ -87,7 +93,8 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   address.innerHTML = restaurant.address;
 
   const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'
+  image.className = 'restaurant-img';
+  image.setAttribute('alt', restaurant.name + " Image");
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
 
   const cuisine = document.getElementById('restaurant-cuisine');
@@ -108,6 +115,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
   const hours = document.getElementById('restaurant-hours');
   for (let key in operatingHours) {
     const row = document.createElement('tr');
+    row.tabIndex = "0";
 
     const day = document.createElement('td');
     day.innerHTML = key;
@@ -128,6 +136,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
   title.innerHTML = 'Reviews';
+  title.tabIndex = "0";
   container.appendChild(title);
 
   if (!reviews) {
@@ -143,11 +152,13 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   container.appendChild(ul);
 }
 
+
 /**
  * Create review HTML and add it to the webpage.
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
+  li.tabIndex = 0;
   const name = document.createElement('p');
   name.innerHTML = review.name;
   li.appendChild(name);
