@@ -2,7 +2,7 @@
 self.addEventListener("install", function (e){
     e.waitUntil(
             caches.open("RestaurantReview").then((cache)=>{
-                cache.addAll([
+                return cache.addAll([
                 '/mws-restaurant-stage-1/',
                 '/mws-restaurant-stage-1/js/dbhelper.js',
                 '/mws-restaurant-stage-1/js/main.js',
@@ -29,7 +29,7 @@ self.addEventListener("install", function (e){
                 'https://unpkg.com/leaflet@1.3.1/dist/leaflet.js',
                 'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css',
                 'https://damola.cf/mws-restaurant-stage-1/data/restaurants.json'
-                ])
+                ]);
             }).then(() => console.log("logging ting"))
     );
 });
