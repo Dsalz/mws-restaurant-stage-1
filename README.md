@@ -12,8 +12,6 @@
 ## How to Run
 Can be cloned from this repository and run on a local server like the python server. Just load up the index.html page to get started.
 
-Can also be viewed online here http://damola.cf/mws-restaurant-stage-1/
-
 ## Dependencies
 Project is dependent on Leaflet and Map box to render the maps.
 

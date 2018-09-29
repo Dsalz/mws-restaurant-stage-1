@@ -2,32 +2,12 @@
 self.addEventListener("install", function (e){
     e.waitUntil(
             caches.open("RestaurantReview").then((cache)=>{
-                // return cache.addAll([
-                // 'https://unpkg.com/leaflet@1.3.1/dist/leaflet.js',
-                // 'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css',
-                // '/mws-restaurant-stage-1/css/styles.css',
-                // '/mws-restaurant-stage-1/',
-                // '/mws-restaurant-stage-1/js/dbhelper.js',
-                // '/mws-restaurant-stage-1/js/main.js',
-                // '/mws-restaurant-stage-1/js/restaurant_info.js',
-                // '/mws-restaurant-stage-1/img/1.jpg',
-                // '/mws-restaurant-stage-1/img/2.jpg',
-                // '/mws-restaurant-stage-1/img/3.jpg',
-                // '/mws-restaurant-stage-1/img/4.jpg',
-                // '/mws-restaurant-stage-1/img/5.jpg',
-                // '/mws-restaurant-stage-1/img/6.jpg',
-                // '/mws-restaurant-stage-1/img/7.jpg',
-                // '/mws-restaurant-stage-1/img/8.jpg',
-                // '/mws-restaurant-stage-1/img/9.jpg',
-                // '/mws-restaurant-stage-1/img/10.jpg',
-                // '/mws-restaurant-stage-1/data/restaurants.json',
-                // '/mws-restaurant-stage-1/index.html',
-                // '/mws-restaurant-stage-1/restaurant.html'
-                // ])
 
                 return cache.addAll([
                   'https://unpkg.com/leaflet@1.3.1/dist/leaflet.js',
                   'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css',
+                  'https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon.png',
+                  "https://unpkg.com/leaflet@1.3.1/dist/images/marker-shadow.png",
                   './css/styles.css',
                   './js/dbhelper.js',
                   './js/main.js',
@@ -58,11 +38,11 @@ self.addEventListener("fetch", function(e){
 
         caches.match(e.request).then((response)=>{
             if(response){
-                console.log(response);
+                console.log("Response Gotten from the Cache!");
                 return response;
             }
 
-            return console.log("Fetching Response") || fetch(e.request);
+            return  console.log("So Fetch") || fetch(e.request);
 
         })
     )
