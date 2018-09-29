@@ -17,8 +17,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 const registerServiceWorker = () => {
    if("serviceWorker" in navigator){
-     navigator.serviceWorker.register("./js/serviceWorker/index.js").then(()=> console.log('Success'))
-     .catch((error) => console.log('Aww, Man! :('));
+     navigator.serviceWorker.register("./js/serviceWorker/index.js").then(function (resp){
+      console.log('Success');
+      console.log(resp);
+     })
+     .catch(function(error){
+        console.log('Aww, Man! :(');
+        console.log(error);
+     });
+
+     navigator.serviceWorker.register("/mws-restaurant-stage-1/js/serviceWorker/index.js").then(function (resp){
+      console.log('Success');
+      console.log(resp);
+     })
+     .catch(function(error){
+        console.log('Aww, Man! :(');
+        console.log(error);
+     });
    }
 }
 /**
