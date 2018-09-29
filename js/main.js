@@ -19,11 +19,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
 const registerServiceWorker = () => {
 
    if(navigator.serviceWorker){
-     navigator.serviceWorker.register("./js/serviceWorker.js", {
-       scope: 'http://damola.cf/mws-restaurant-stage-1/'
-     }).then((resp) => console.log('Success') || console.log(resp))
+     navigator.serviceWorker.register("./serviceWorker.js").then((resp) => console.log('Success') || console.log(resp))
      .catch((error) => console.log('Aww, Man! :(') || console.log(error));
    }
+   else{
+    console.log('No Service worker on this browserini');
+  }
 }
 /**
  * Fetch all neighborhoods and set their HTML.
@@ -176,7 +177,7 @@ createRestaurantHTML = (restaurant) => {
   image.alt = `${restaurant.name} Image`;
   li.append(image);
 
-  const name = document.createElement('h1');
+  const name = document.createElement('h2');
   name.innerHTML = restaurant.name;
   li.append(name);
 

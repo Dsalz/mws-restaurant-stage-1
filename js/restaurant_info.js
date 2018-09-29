@@ -39,9 +39,7 @@ initMap = () => {
 const registerServiceWorker = () => {
 
   if(navigator.serviceWorker){
-    navigator.serviceWorker.register("./js/serviceWorker.js",{
-      scope: 'http://damola.cf/mws-restaurant-stage-1/'
-    }).then((resp) => console.log('Success') || console.log(resp))
+    navigator.serviceWorker.register("./serviceWorker.js").then((resp) => console.log('Success') || console.log(resp))
     .catch((error) => console.log('Aww, Man! :(') || console.log(error));
   }
   else{
