@@ -6,6 +6,7 @@ var newMap;
  */
 document.addEventListener('DOMContentLoaded', (event) => {  
   initMap();
+  registerServiceWorker();
 });
 
 /**
@@ -35,9 +36,9 @@ initMap = () => {
   });
 }  
 
-registerServiceWorker = () =>{
+const registerServiceWorker = () =>{
   if(!navigator.serviceWorker) return;
-  navigator.serviceWorker.register("/js/serviceWorker/index.js").then(()=> console.log("successimo"))
+  navigator.serviceWorker.register("./js/serviceWorker/index.js").then(()=> console.log("successimo"))
   .catch(()=> console.log("falisimo"));
 }
  
